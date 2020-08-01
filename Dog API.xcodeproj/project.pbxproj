@@ -56,15 +56,31 @@
 		E2452BCE24D2C9630068BEE0 /* Dog API */ = {
 			isa = PBXGroup;
 			children = (
-				E2452BCF24D2C9630068BEE0 /* AppDelegate.swift */,
-				E2452BD124D2C9630068BEE0 /* SceneDelegate.swift */,
-				E2452BD324D2C9630068BEE0 /* ViewController.swift */,
-				E2452BD524D2C9630068BEE0 /* Main.storyboard */,
-				E2452BD824D2C96B0068BEE0 /* Assets.xcassets */,
-				E2452BDA24D2C96B0068BEE0 /* LaunchScreen.storyboard */,
+				E2452BE324D537B50068BEE0 /* Controller */,
+				E2452BE424D537C70068BEE0 /* View */,
 				E2452BDD24D2C96B0068BEE0 /* Info.plist */,
 			);
 			path = "Dog API";
+			sourceTree = "<group>";
+		};
+		E2452BE324D537B50068BEE0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2452BCF24D2C9630068BEE0 /* AppDelegate.swift */,
+				E2452BD124D2C9630068BEE0 /* SceneDelegate.swift */,
+				E2452BD324D2C9630068BEE0 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E2452BE424D537C70068BEE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2452BD524D2C9630068BEE0 /* Main.storyboard */,
+				E2452BDA24D2C96B0068BEE0 /* LaunchScreen.storyboard */,
+				E2452BD824D2C96B0068BEE0 /* Assets.xcassets */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
