@@ -79,9 +79,9 @@
 		E2452BE424D537C70068BEE0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E2452BD824D2C96B0068BEE0 /* Assets.xcassets */,
 				E2452BD524D2C9630068BEE0 /* Main.storyboard */,
 				E2452BDA24D2C96B0068BEE0 /* LaunchScreen.storyboard */,
+				E2452BD824D2C96B0068BEE0 /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
