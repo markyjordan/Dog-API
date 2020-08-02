@@ -27,13 +27,19 @@ class ViewController: UIViewController {
             }
             print(data)
             
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                let url = json["message"] as! String
-                print(url)
-            } catch {
-                print(error)
-            }
+            // parse JSON with Codable protocol
+            let decoder = JSONDecoder()
+            let imageData = try! decoder.decode(DogImage.self, from: data)
+            print(imageData)
+            
+//            // parse JSON with JSONSerialization
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//                let url = json["message"] as! String
+//                print(url)
+//            } catch {
+//                print(error)
+//            }
         }
         task.resume()
     }
