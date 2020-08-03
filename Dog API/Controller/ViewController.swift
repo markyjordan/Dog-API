@@ -21,16 +21,11 @@ class ViewController: UIViewController {
         // create URLSessionDataTask
         let task = URLSession.shared.dataTask(with: randomImageEndpoint) { (data, response, error) in
             
-            // confirm data received back as response is not nil
+            // confirm JSON data received back as response is not nil
             guard let data = data else {
                 return
             }
             print(data)
-            
-            // parse JSON with Codable protocol
-            let decoder = JSONDecoder()
-            let imageData = try! decoder.decode(DogImage.self, from: data)
-            print(imageData)
             
 //            // parse JSON with JSONSerialization
 //            do {
@@ -40,10 +35,35 @@ class ViewController: UIViewController {
 //            } catch {
 //                print(error)
 //            }
+            
+            // parse JSON with Codable protocol
+            // initialize tho JSON decoder
+            let decoder = JSONDecoder()
+            
+            // add the decoded JSON to the model object and create a constant that stores its location
+            let imageData = try! decoder.decode(DogImage.self, from: data)
+            print(imageData)
+            
+            // convert the message property into a URL in order to fetch the image data
+            // create a constant that stores the message property of the image data
+            guard let imageURL = URL(string: imageData.message) else {
+                return
+            }
+            
+            let task = URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) in
+                guard let data = data else {
+                    return
+                }
+                let downloadedImage = UIImage(data: data)
+                
+                // update the UI on the main thread
+                DispatchQueue.main.async {
+                    self.imageView.image = downloadedImage
+                }
+            })
+            task.resume()
         }
         task.resume()
     }
-
-
 }
 
