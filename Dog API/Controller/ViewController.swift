@@ -49,19 +49,10 @@ class ViewController: UIViewController {
             guard let imageURL = URL(string: imageData.message) else {
                 return
             }
-            
-            let task = URLSession.shared.dataTask(with: imageURL, completionHandler: { (data, response, error) in
-                guard let data = data else {
-                    return
-                }
-                let downloadedImage = UIImage(data: data)
-                
-                // update the UI on the main thread
-                DispatchQueue.main.async {
-                    self.imageView.image = downloadedImage
-                }
-            })
-            task.resume()
+            // update the UI on the main thread
+            DispatchQueue.main.async {
+              self.imageView.image = downloadedImage
+            }
         }
         task.resume()
     }
