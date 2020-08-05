@@ -22,9 +22,11 @@ class DogAPI {
     class func requestImageFile (url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             guard let data = data else {
+                completionHandler(nil, error)
                 return
             }
             let downloadedImage = UIImage(data: data)
+            completionHandler(downloadedImage, nil)
         })
         task.resume()
     }
