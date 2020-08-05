@@ -49,10 +49,13 @@ class ViewController: UIViewController {
             guard let imageURL = URL(string: imageData.message) else {
                 return
             }
-            // update the UI on the main thread
-            DispatchQueue.main.async {
-              self.imageView.image = downloadedImage
-            }
+            
+            // implement requestImageFile
+            DogAPI.requestImageFile(url: imageURL, completionHandler: {(image, error) in
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                }
+            })
         }
         task.resume()
     }
