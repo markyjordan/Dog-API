@@ -51,13 +51,15 @@ class ViewController: UIViewController {
             }
             
             // implement requestImageFile
-            DogAPI.requestImageFile(url: imageURL, completionHandler: {(image, error) in
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                }
-            })
+            DogAPI.requestImageFile(url: imageURL, completionHandler: self.handleImageFileResponse(image:error:))
         }
         task.resume()
+    }
+    
+    func handleImageFileResponse(image: UIImage?, error: Error?) {
+        DispatchQueue.main.async {
+            self.imageView.image = image
+        }
     }
 }
 
