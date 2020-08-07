@@ -50,7 +50,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            // implement requestImageFile
+            // implement requestImageFile as a network request
             DogAPI.requestImageFile(url: imageURL, completionHandler: self.handleImageFileResponse(image:error:))
         }
         task.resume()
