@@ -14,16 +14,17 @@ class DogAPI {
     enum Endpoint: String {
         case randomImageForAllDogsCollection = "https://dog.ceo/api/breeds/image/random"
         
+        // create computed property to generate a URL from an enum case's raw value
         var url: URL {
             return URL(string: self.rawValue)!
         }
     }
     
     class func requestRandomImage (completionHandler: @escaping (UIImage?, Error?) -> Void) {
-        // generate image request
+        // initialize a constant with the URL endpoint
         let randomImageEndpoint = DogAPI.Endpoint.randomImageForAllDogsCollection.url
 
-        // create URLSessionDataTask
+        // create URLSessionDataTask to generate a network request with the endpoint
         let task = URLSession.shared.dataTask(with: randomImageEndpoint) { (data, response, error) in
             
             // confirm JSON data received back as response is not nil
