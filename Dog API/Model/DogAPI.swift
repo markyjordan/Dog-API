@@ -19,8 +19,8 @@ class DogAPI {
             return URL(string: self.rawValue)!
         }
     }
-    
-    class func requestRandomImage (completionHandler: @escaping (UIImage?, Error?) -> Void) {
+    // the async completionHandler passes back information to the caller (i.e. view controller)
+    class func requestRandomImage (completionHandler: @escaping (DogImage?, Error?) -> Void) {
         // initialize a constant with the URL endpoint
         let randomImageEndpoint = DogAPI.Endpoint.randomImageForAllDogsCollection.url
 
@@ -29,6 +29,8 @@ class DogAPI {
             
             // confirm JSON data received back as response is not nil
             guard let data = data else {
+                // JSON parsing was not successful; no data is passed back to view controller
+                completionHandler(nil, error)
                 return
             }
             print(data)
@@ -49,6 +51,8 @@ class DogAPI {
             // add the decoded JSON to the model object and create a constant that stores its location
             let imageData = try! decoder.decode(DogImage.self, from: data)
             print(imageData)
+            // JSON parsing is successful; pass image data (as DogImage struct) to view controller with completionHandler
+            completionHandler(imageData, nil)
         }
         task.resume()
     }
