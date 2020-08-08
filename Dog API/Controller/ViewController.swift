@@ -15,9 +15,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // generate image request
+        // generate image request from the dog API
         DogAPI.requestRandomImage(completionHandler: handleRandomImageResponse(imageData:error:))
-
     }
     
     func handleRandomImageResponse(imageData: DogImage?, error: Error?) {
