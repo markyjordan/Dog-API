@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var imageView: UIImageView!
     
+    let breeds = [String]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
