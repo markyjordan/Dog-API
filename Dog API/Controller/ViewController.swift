@@ -43,5 +43,14 @@ class ViewController: UIViewController {
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
+    // UIPickerView Data Source methods
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return breeds.count
+    }
+    
 }
 
