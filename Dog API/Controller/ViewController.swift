@@ -37,3 +37,7 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+}
+
