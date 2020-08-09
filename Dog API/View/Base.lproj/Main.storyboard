@@ -23,6 +23,9 @@
                                     </pickerView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Gh-4d-isf">
                                         <rect key="frame" x="0.0" y="216" width="343" height="518"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="518" id="NNr-Qg-kph"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                             </stackView>
