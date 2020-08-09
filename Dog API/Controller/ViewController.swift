@@ -10,10 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK - Outlets/Properties
+    
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var imageView: UIImageView!
     
-    let breeds = [String]
+    let breeds = [String]()
+    
+    // MARK - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,8 @@ class ViewController: UIViewController {
         }
     }
 }
+
+// MARK - UIPickerView Delegate and Data Source
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
