@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set the pickerView data source and delegate
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
         // generate image request from the dog API
         DogAPI.requestRandomImage(completionHandler: handleRandomImageResponse(imageData:error:))
     }
