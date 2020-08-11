@@ -11,13 +11,20 @@ import UIKit
 
 class DogAPI {
     
-    enum Endpoint:  {
+    enum Endpoint {
         case randomImageForAllDogsCollection = "https://dog.ceo/api/breeds/image/random"
         case randomImageForBreed = "https://dog.ceo/api/breed/hound/images"
         
         // create computed property to generate a URL from an enum case's raw value
         var url: URL {
             return URL(string: self.rawValue)!
+        }
+        
+        // create computed property to build urls for a specific dog breed
+        var stringValue: String {
+            switch self {
+                case
+            }
         }
 
     }
