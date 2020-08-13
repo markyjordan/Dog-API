@@ -31,9 +31,9 @@ class DogAPI {
         }
     }
     // the async completionHandler passes back information to the caller (i.e. view controller)
-    class func requestRandomImage (completionHandler: @escaping (DogImage?, Error?) -> Void) {
+    class func requestRandomImage (breed: String, completionHandler: @escaping (DogImage?, Error?) -> Void) {
         // initialize a constant with the URL endpoint
-        let randomImageEndpoint = DogAPI.Endpoint.randomImageForAllDogsCollection.url
+        let randomImageEndpoint = DogAPI.Endpoint.randomImageForBreed(breed).url
 
         // create URLSessionDataTask to generate a network request with the endpoint
         let task = URLSession.shared.dataTask(with: randomImageEndpoint) { (data, response, error) in
