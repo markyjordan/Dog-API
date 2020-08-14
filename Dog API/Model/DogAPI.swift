@@ -16,7 +16,7 @@ class DogAPI {
         case randomImageForBreed(String)
         
         // create computed property to generate a URL from an enum case's raw value
-        var url: URL {
+        var url: URL { 
             return URL(string: self.stringValue)!
         }
         
