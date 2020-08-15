@@ -14,9 +14,10 @@ class DogAPI {
     enum Endpoint {
         case randomImageForAllDogsCollection
         case randomImageForBreed(String)
+        case listAllBreeds
         
         // create computed property to generate a URL from an enum case's raw value
-        var url: URL { 
+        var url: URL {
             return URL(string: self.stringValue)!
         }
         
@@ -27,6 +28,8 @@ class DogAPI {
                 return "https://dog.ceo/api/breeds/image/random"
             case .randomImageForBreed(let breed):
                 return "https://dog.ceo/api/breed/\(breed)/images"
+            case .listAllBreeds:
+                return "https://dog.ceo/api/breeds/list/all"
             }
         }
     }
