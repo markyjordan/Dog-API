@@ -90,8 +90,11 @@ class DogAPI {
                 return
             }
             let jsonDecoder = JSONDecoder()
-            
-            let breedsList = try! jsonDecoder.decode(
+            let breedsList = try! jsonDecoder.decode(BreedsListResponse.self, from: data)
+            print(breedsList)
+            let breeds = breedsList.message.keys.map({$0})
+            completionHandler(breedsList, nil)
         })
+        task.resume()
     }
 }

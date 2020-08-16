@@ -11,5 +11,5 @@ import Foundation
 struct BreedsListResponse: Codable {
     
     let status: String
-    let meesage: [String: [String]]
+    let message: [String: [String]]
 }
