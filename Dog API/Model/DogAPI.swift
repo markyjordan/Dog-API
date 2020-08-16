@@ -82,4 +82,16 @@ class DogAPI {
         })
         task.resume()
     }
+    
+    class func requestBreedsList (completionHandler: @escaping ([String], Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: Endpoint.listAllBreeds.url, completionHandler: { (data, response, error) in
+            guard let data = data else {
+                completionHandler([], error)
+                return
+            }
+            let jsonDecoder = JSONDecoder()
+            
+            let breedsList = try! jsonDecoder.decode(
+        })
+    }
 }
