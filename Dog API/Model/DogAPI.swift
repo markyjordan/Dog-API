@@ -89,11 +89,15 @@ class DogAPI {
                 completionHandler([], error)
                 return
             }
-            let jsonDecoder = JSONDecoder()
-            let breedsList = try! jsonDecoder.decode(BreedsListResponse.self, from: data)
-            print(breedsList)
-            let breeds = breedsList.message.keys.map({$0})
-            completionHandler(breedsList, nil)
+            do {
+                let jsonDecoder = JSONDecoder()
+                let breedsList = try jsonDecoder.decode(BreedsListResponse.self, from: data)
+                print(breedsList)
+                let breeds = breedsList.message.keys.map({$0})
+                completionHandler(breeds, nil)
+            } catch {
+                print(error)
+            }
         })
         task.resume()
     }
