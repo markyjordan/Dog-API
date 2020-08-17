@@ -58,15 +58,19 @@ class DogAPI {
         //                print(error)
         //            }
             
-            // parse JSON with Codable protocol
-            // initialize tho JSON decoder
-            let decoder = JSONDecoder()
-            
-            // add the decoded JSON to the model object and create a constant that stores its location
-            let imageData = try! decoder.decode(DogImage.self, from: data)
-            print(imageData)
-            // JSON parsing is successful; pass image data (as DogImage struct) to view controller with completionHandler
-            completionHandler(imageData, nil)
+            do {
+                // parse JSON with Codable protocol
+                // initialize tho JSON decoder
+                let jsonDecoder = JSONDecoder()
+                
+                // add the decoded JSON to the model object and create a constant that stores its location
+                let imageData = try jsonDecoder.decode(DogImage.self, from: data)
+                print(imageData)
+                // JSON parsing is successful; pass image data (as DogImage struct) to view controller with completionHandler
+                completionHandler(imageData, nil)
+            } catch {
+                print(error)
+            }
         }
         task.resume()
     }
