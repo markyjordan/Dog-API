@@ -25,9 +25,6 @@ class ViewController: UIViewController {
         // set the pickerView data source and delegate
         pickerView.dataSource = self
         pickerView.delegate = self
-        
-        // generate image request from the dog API
-//        DogAPI.requestRandomImage(completionHandler: handleRandomImageResponse(imageData:error:))
     }
     
     func handleBreedsListResponse(breeds: [String], error: Error?) {
