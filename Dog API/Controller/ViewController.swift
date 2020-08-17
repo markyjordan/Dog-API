@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     }
     
     func handleBreedsListResponse(breeds: [String], error: Error?) {
+        // update the global breeds property
         self.breeds = breeds
         // update the UIPickerView on the main thread
         DispatchQueue.main.async {
