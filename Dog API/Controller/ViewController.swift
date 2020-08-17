@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var imageView: UIImageView!
     
-    let breeds = [String]()
+    var breeds: [String] = []
     
     // MARK - Life Cycle
     
@@ -28,6 +28,14 @@ class ViewController: UIViewController {
         
         // generate image request from the dog API
         DogAPI.requestRandomImage(completionHandler: handleRandomImageResponse(imageData:error:))
+    }
+    
+    func handleBreedsListResponse(breeds: [String], error: Error?) {
+        self.breeds = breeds
+        // update the UIPickerView on the main thread
+        DispatchQueue.main.async {
+            self.pickerView.reloadAllComponents()
+        }
     }
     
     func handleRandomImageResponse(imageData: DogImage?, error: Error?) {
