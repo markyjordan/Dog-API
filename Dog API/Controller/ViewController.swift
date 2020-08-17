@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         // set the pickerView data source and delegate
         pickerView.dataSource = self
         pickerView.delegate = self
+        
+        DogAPI.requestBreedsList(completionHandler: handleBreedsListResponse(breeds:error:))
     }
     
     func handleBreedsListResponse(breeds: [String], error: Error?) {
