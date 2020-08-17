@@ -94,6 +94,7 @@ class DogAPI {
                 let breedsList = try jsonDecoder.decode(BreedsListResponse.self, from: data)
                 print(breedsList)
                 let breeds = breedsList.message.keys.map({$0})
+                print(breeds)
                 completionHandler(breeds, nil)
             } catch {
                 print(error)
